@@ -24,7 +24,9 @@ jobs:
           sudo apt-get install -y apksigner
 
       - name: Build APK
-        run: apktool b . -o output.apk
+        run: |
+          rm -f resources.arsc
+          apktool b . -o output.apk
 
       - name: Sign APK
         run: |
