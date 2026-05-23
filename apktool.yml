@@ -2,7 +2,6 @@
 apkFileName: final_languages_filtered.apk
 compressionType: false
 doNotCompress:
-- resources.arsc
 - png
 isFrameworkApk: false
 packageInfo:
