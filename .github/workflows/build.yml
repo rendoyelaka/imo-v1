@@ -29,7 +29,7 @@ jobs:
       - name: Sign APK
         run: |
           keytool -genkey -v -keystore test.keystore -alias testkey -keyalg RSA -keysize 2048 -validity 10000 -storepass password123 -keypass password123 -dname "CN=Test,OU=Test,O=Test,L=Test,S=Test,C=US"
-          apksigner sign --ks test.keystore --ks-pass pass:password123 --key-pass pass:password123 --ks-key-alias testkey --out signed.apk output.apk
+          apksigner sign --min-sdk-version 23 --ks test.keystore --ks-pass pass:password123 --key-pass pass:password123 --ks-key-alias testkey --out signed.apk output.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
